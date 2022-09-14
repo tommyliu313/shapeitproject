@@ -1,1 +1,4 @@
-FROM 
+FROM python:3
+MAINTAINER liuchaktin@gmail.com
+
+CMD ["python","main.py"]
