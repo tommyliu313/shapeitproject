@@ -1,4 +1,8 @@
 FROM python:3
-MAINTAINER liuchaktin@gmail.com
+MAINTAINER tommy <liuchaktin@gmail.com>
 
+RUN apt-get update
+COPY 
+
+ENTRYPOINT 8083
 CMD ["python","main.py"]
