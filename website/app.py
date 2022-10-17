@@ -1,3 +1,4 @@
+#import item
 from flask import Flask, jsonify, request, render_template, Blueprint, session, abort
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -11,4 +12,5 @@ from werkzeug.security import generate_password_hash
 import os
 import json
 
+# initialized the class
 app = Flask(__name__, template_folder='app/templates', static_folder="app/static")
