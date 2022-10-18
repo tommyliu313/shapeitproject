@@ -1,14 +1,17 @@
 #import item
-import
+import 
 
 
 # class
 class example():
+#if you want to inherit/ extend the function of another class,
+#just type the name of that class (superclass) into the class (subclass)
+#such as class student(person)
 
 # initial setting
-def __init__(self):
-    self
-
+    def __init__(self):
+        self
+    
 # its component
 
 
