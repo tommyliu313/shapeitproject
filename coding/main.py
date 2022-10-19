@@ -12,12 +12,6 @@ class example():
     def __init__(self):
         self
     
-# its component
-    # initial setting
-    def __init__(self):
-        self
-
-    # its component
 
 
     # processing part
@@ -29,7 +23,8 @@ class testing():
 
 
 # test(self.assert)
-self.assertTrue()
+    def 
+    self.assertTrue()
 #def main():
 
 # if__name__ == '__main__':
