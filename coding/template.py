@@ -12,7 +12,7 @@ import numpy
 
 # class SECTION
 # Be careful your indentation
- class example():
+class example():
 # if you want to inherit/ extend the function of another class,
 # just type the name of that class (superclass) into the class (subclass)
 # such as class student (person)

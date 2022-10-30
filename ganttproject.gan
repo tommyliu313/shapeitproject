@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-10-26" view-index="0" gantt-divider-location="351" resource-divider-location="300" version="3.2.3230" locale="zh_HK">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2022-07-01" view-index="0" gantt-divider-location="366" resource-divider-location="300" version="3.2.3247" locale="zh_HK">
     <description/>
-    <view zooming-state="default:2" id="gantt-chart">
+    <view zooming-state="default:11" id="gantt-chart">
         <field id="tpd3" name="Name" width="200" order="0"/>
         <field id="tpd4" name="Begin date" width="75" order="1"/>
         <field id="tpd5" name="End date" width="75" order="2"/>
@@ -34,14 +34,47 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="0" name="Task Planning" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
-        <task id="1" name="Setting up a Website" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true">
-            <task id="3" name="UI Design" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true">
-                <task id="4" name="Navigation Bar" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
-                <task id="5" name="Footer" color="#8cb6ce" meeting="false" start="2022-10-26" duration="1" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+        <task id="26" name="Initial Stage" meeting="false" start="2022-09-14" duration="58" complete="0" expand="true">
+            <task id="24" name="Prototype" color="#8cb6ce" meeting="false" start="2022-09-14" duration="31" complete="0" thirdDate="2022-10-10" thirdDate-constraint="0" expand="false">
+                <task id="1" name="Setting" color="#000000" meeting="false" start="2022-09-14" duration="31" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true">
+                    <task id="27" name="Git Repository" color="#8cb6ce" meeting="true" start="2022-09-14" duration="0" complete="0" thirdDate="2022-01-03" thirdDate-constraint="0" expand="true"/>
+                    <task id="17" name="Environment" meeting="false" start="2022-10-26" duration="1" complete="0" expand="false">
+                        <task id="16" name="Server" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true">
+                            <task id="20" name="Developing" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
+                            <task id="19" name="Staging" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
+                            <task id="18" name="Production" color="#8cb6ce" meeting="false" start="2022-10-26" duration="1" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+                        </task>
+                    </task>
+                    <task id="10" name="Website" color="#8cb6ce" meeting="false" start="2022-10-26" duration="1" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true">
+                        <task id="3" name="UI Design" meeting="false" start="2022-10-26" duration="1" complete="0" expand="false">
+                            <task id="4" name="Navigation Bar" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
+                            <task id="5" name="Footer" color="#8cb6ce" meeting="false" start="2022-10-26" duration="1" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+                        </task>
+                    </task>
+                    <task id="2" name="Function" color="#8cb6ce" meeting="false" start="2022-10-26" duration="1" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+                </task>
             </task>
-            <task id="2" name="Function" color="#8cb6ce" meeting="false" start="2022-10-26" duration="1" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+            <task id="13" name="Learning" meeting="false" start="2022-10-26" duration="1" complete="0" expand="false">
+                <task id="14" name="Numpy" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
+                <task id="15" name="OpenCV" meeting="false" start="2022-10-26" duration="1" complete="0" expand="true"/>
+            </task>
+            <task id="21" name="Documentation" meeting="false" start="2022-10-20" duration="32" complete="0" expand="false">
+                <task id="7" name="Report" meeting="false" start="2022-10-31" duration="25" complete="0" expand="true">
+                    <task id="8" name="Research Report" color="#8cb6ce" meeting="false" start="2022-10-31" duration="25" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+                </task>
+                <task id="23" name="Proposal" meeting="false" start="2022-10-20" duration="7" complete="0" expand="false">
+                    <task id="22" name="Setting up a Proposal" color="#8cb6ce" meeting="false" start="2022-10-20" duration="7" complete="0" thirdDate="2022-08-29" thirdDate-constraint="0" expand="true"/>
+                </task>
+            </task>
         </task>
+        <task id="25" name="Last Stage" meeting="false" start="2022-05-13" duration="260" complete="0" expand="true">
+            <task id="9" name="Demostration" color="#8cb6ce" meeting="false" start="2022-05-13" duration="260" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true">
+                <task id="12" name="Presentation" color="#8cb6ce" meeting="true" start="2023-05-12" duration="0" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+                <task id="11" name="PowerPoint" color="#8cb6ce" meeting="true" start="2022-05-13" duration="0" complete="0" thirdDate="2022-10-26" thirdDate-constraint="0" expand="true"/>
+            </task>
+        </task>
+        <task id="28" name="Attending Report Writing Workshops" meeting="false" start="2022-07-01" duration="1" complete="0" expand="true"/>
+        <task id="29" name="task_29" meeting="false" start="2022-07-01" duration="1" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>

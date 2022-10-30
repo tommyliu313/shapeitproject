@@ -5,7 +5,8 @@ import cv2
 
 #load images
 
-img = cv2.imread("",0)
+#cla
+
 
 #class
 class object():

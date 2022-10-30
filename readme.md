@@ -10,9 +10,9 @@ Docker
 
 ## Python Module that I going to use
 
-# Update Events
-20220914 Initialize a Git Repository & Add Information
+## Update Events
 
+## How can you use this system in your own local computer?
 
 ## Remind
 Diagram Can only show in online visual paradigm 
