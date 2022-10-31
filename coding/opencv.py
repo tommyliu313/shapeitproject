@@ -10,11 +10,10 @@ image = cv2.imread("")
 # video
 cap = cv2.videoCapture(0)
 
-while(true):
     
 # convert color
 
-convert = cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
+# convert = cv2.cvtColor(image,cv2.COLOR_RGB2HSV)
 human_face_template = cv2.cascadeClassifier("CascadeClassifier\haarcascade_frontalface_alt.xml");
 
 
