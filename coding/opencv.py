@@ -4,8 +4,16 @@ import cv2
 
 
 #load images
-
+image = cv2.imread("")
 #cla
+
+# video
+cap = cv2.videoCapture(0)
+
+# convert color
+
+convert = cv2.cvtColor()
+human_face_template = cv2.cascadeClassifier("CascadeClassifier\haarcascade_frontalface_alt.xml");
 
 
 #class
@@ -15,9 +23,7 @@ class object():
     def __init__(name):
         self.name = name
 
-# convert color
 
-    convert = cv2.cvtColor()
 
 #effects (thresholding)
 
@@ -27,8 +33,9 @@ cv2.imshow("",)
 
 
 
-# click the button and do the following action
-if ord(''):
+# click the button esc and do the following action
+if cv2.waitKey(1) & 0xFF == ord('esc'):
+    break
 # close the application
 
 cv2.waitKey(0)
