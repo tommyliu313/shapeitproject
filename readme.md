@@ -16,8 +16,13 @@ This is Real-Time Monitoring People Flow System.
 #### Web Development
 
 ## File Description
-### CascadeClassifier
+### Folder
+#### CascadeClassifier 
 It includes the xml file which has been created as a reference.
+
+### File
+#### ganttproject.gan
+Using ganttproject to visualize the the expected gantt chart.
 
 
 ### Python Module that I going to use
