@@ -4,24 +4,24 @@
 
 This is the ITP Project of Liu Chak Tin (227212713).
 
-## What is this?
+## Overview
+### What is this?
 This is Real-Time Monitoring People Flow System.
 
-## This includes what system?
+### This includes what system?
 
-## Who can use this?
+### Who can use this?
 
-## Tools that I have use:
+### Tools that I have use:
 #### Web Development
 
-## File Description
+### File Description
 ### CascadeClassifier
 It includes the xml file which has been created as a reference.
 
-## Requirement
 
-## Python Module that I going to use
-### OpenCV
+### Python Module that I going to use
+#### OpenCV
 This is used for detecting face and initialize the counter.
 
 ## Milestone
