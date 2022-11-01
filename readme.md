@@ -2,13 +2,22 @@
 
 ## Description
 
-## Tools that I have use:
+This is the ITP Project of Liu Chak Tin (227212713).
 
-Docker
+## What is this?
+This is Real-Time Monitoring People Flow System.
+
+## This includes what system?
+
+## Tools that I have use:
+#### Web Development
+
 
 ## Requirement
 
 ## Python Module that I going to use
+### OpenCV
+This is used for detecting face and initialize the counter.
 
 ## Update Events
 
