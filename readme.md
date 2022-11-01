@@ -9,6 +9,8 @@ This is Real-Time Monitoring People Flow System.
 
 ## This includes what system?
 
+## Who can use this?
+
 ## Tools that I have use:
 #### Web Development
 
@@ -19,7 +21,7 @@ This is Real-Time Monitoring People Flow System.
 ### OpenCV
 This is used for detecting face and initialize the counter.
 
-## Update Events
+## Milestone
 
 ## How can you use this system in your own local computer?
 
