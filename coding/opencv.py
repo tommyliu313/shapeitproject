@@ -1,6 +1,7 @@
 #import items
 import numpy as np
 import cv2
+from tkinter import *
 
 # setting
 yellow = (255,255,0)
@@ -30,22 +31,24 @@ if human_face_template.empty() == True:
 #effects (thresholding) 
 
 
-#class
-class object():
 
-#basic definition
-    def __init__(name):
-        self.name = name
-
-
+#draw rectangle
+def draw_rectangle():
+    cv2.drawrectangle
 
 #scenario 1: recognize people face
 #process involved: face detection
 #using function:  text
+def 
+   text = cv2.putText(image, text,(80,80) ,cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,)
 
-text = cv2.putText(image, text,(80,80) ,cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,)
 
+#class
+#class object():
 
+#basic definition
+#    def __init__(name):
+#        self.name = name
 
 
 
@@ -54,15 +57,4 @@ text = cv2.putText(image, text,(80,80) ,cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,)
 #視窗名稱,變數名稱
 cv2.imshow("",)
 
-#Camera Setting
-
-while(True):
-# click the button esc and do the following action
-    ret, frame = cap.read(1)
-    if cv2.waitKey(1) & 0xFF == ord('esc'):
-        break
-# close the application
-
-cv2.waitKey(0)
-cv2.destroyAllWindows()
 
