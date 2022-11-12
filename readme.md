@@ -49,4 +49,4 @@ pip freeze > requirements.txt(https://learn.markteaching.com/python-pip/#pip_fre
 
 >> pip install -r requirements.txt
 
-3) Pleas type "flask run" in the terminal to start the application.
+3) Please type "flask run" in the terminal to start the application.
