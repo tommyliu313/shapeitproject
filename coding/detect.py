@@ -1,0 +1,2 @@
+def recognizeperson():
+  print t" ${}"
