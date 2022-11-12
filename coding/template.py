@@ -3,7 +3,8 @@
 # import item (such as numpy, opencv, pytranscriber etc opensource code)
 # for example numpy
 
-import numpy 
+import numpy
+import cv2
 
 # Variable SECTION
 # Where you should define or simplify something
@@ -44,9 +45,6 @@ class example():
 class testing():
 
 
-# test(self.assert)
-    def assert():
-        self.assertTrue()
 
 
 #def main():

@@ -45,6 +45,7 @@ class object():
 
 text = cv2.putText(image, text,(80,80) ,cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,)
 
+= cv2.
 
 
 
