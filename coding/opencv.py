@@ -39,7 +39,7 @@ def draw_rectangle():
 #scenario 1: recognize people face
 #process involved: face detection
 #using function:  text
-def 
+def puttext()
    text = cv2.putText(image, text,(80,80) ,cv2.FONT_HERSHEY_SCRIPT_COMPLEX,1,)
 
 = cv2.
