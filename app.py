@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, url_for
+from coding import camera
 
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
 
@@ -9,6 +10,9 @@ def testing():
 @app.route('/index')
 def index():
     return render_template('page/index.html')
+
+def generate_frame():
+    camera 
 
 @app.errorhandler(404)
 def page_not_found(e):
