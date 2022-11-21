@@ -1,5 +1,4 @@
-from flask import Flask, request, render_template, url_for
-from coding import camera
+from flask import Flask, request, render_template, url_for, jsonify
 
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
 
@@ -11,8 +10,20 @@ def testing():
 def index():
     return render_template('page/index.html')
 
-def generate_frame():
-    camera 
+@app.route('/simple')
+def simple():
+    return jsonify(message = 'Hello from the Planetary API.')
+
+@app.route('/parameters')
+def parameters():
+    name = request.args.get('name')
+    age = int(request.args.get('age'))
+    if age < 18:
+        return jsonify(message = "Sorry" + name + ", you are not old enough.")
+    else:
+        return jsonify(message="Welcome "+ name + ", you are old enough!")
+
+
 
 @app.errorhandler(404)
 def page_not_found(e):
