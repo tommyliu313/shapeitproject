@@ -1,8 +1,8 @@
 {% include 'necessaries/navbar.html' %}
-{% block body %}
-    
+{% block content %}
+<div>
+<img src=" {{ url_for('video_feed') }}">
+</div>
 {% endblock %}
 
-{% block content %}
-{% include 'necessaries/footer.html' %}
-{% endblock %}
+

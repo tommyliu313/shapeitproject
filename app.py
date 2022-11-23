@@ -1,6 +1,26 @@
-from flask import Flask, request, render_template, url_for, jsonify
+from flask import Flask, request, render_template, url_for, jsonify, Response
+import cv2
+ 
+from camera import Camera
 
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
+camera = cv2.VideoCapture(0)
+
+def gen_frames():
+    while True:
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            ret, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+#def gen_recognizer():
+#    frame = cv2.rectangle
+
+
 
 @app.route('/')
 def testing():
@@ -13,6 +33,11 @@ def index():
 @app.route('/simple')
 def simple():
     return jsonify(message = 'Hello from the Planetary API.')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen_frames(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/parameters')
 def parameters():
@@ -27,11 +52,11 @@ def parameters():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template('error/error.html', errorstatus=404),404
+    return render_template('error/error.html', ErrorStatus=404),404
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    return render_template('error/error.html', errorstatus=500),500    
+    return render_template('error/error.html', ErrorStatus=500),500    
 
 if __name__ == "__main__":
     app.run(debug=True)
