@@ -1,11 +1,15 @@
 from flask import Flask, request, render_template, url_for, jsonify, Response
 import cv2
+import mediapipe as mp
  
 from camera import Camera
 
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
 camera = cv2.VideoCapture(0)
+mp_face_detection = mp.solutions.face_detection
+mp_drawing = mp.solutions.drawing_utils
 
+# generate the image
 def gen_frames():
     while True:
         success, frame = camera.read()
@@ -17,10 +21,10 @@ def gen_frames():
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
-#def gen_recognizer():
-#    frame = cv2.rectangle
+#def recognize_face():
 
-
+def draw_rentangle():
+    cv2.drawRentangle()
 
 @app.route('/')
 def testing():
