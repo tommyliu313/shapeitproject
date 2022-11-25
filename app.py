@@ -1,13 +1,19 @@
 from flask import Flask, request, render_template, url_for, jsonify, Response
 import cv2
-import mediapipe as mp
+#import mediapipe as 
+import matplotlib.pyplot as py
  
 from camera import Camera
 
+#basic setting
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
 camera = cv2.VideoCapture(0)
-mp_face_detection = mp.solutions.face_detection
-mp_drawing = mp.solutions.drawing_utils
+#mp_face_detection = mp.solutions.face_detection
+#mp_drawing = mp.solutions.drawing_utils
+
+#variables
+#font = ""
+#size = ""
 
 # generate the image
 def gen_frames():
@@ -25,6 +31,13 @@ def gen_frames():
 
 def draw_rentangle():
     cv2.drawRentangle()
+
+
+#detect multiple faces
+
+#def ():
+
+
 
 @app.route('/')
 def testing():
@@ -52,6 +65,11 @@ def parameters():
     else:
         return jsonify(message="Welcome "+ name + ", you are old enough!")
 
+
+#@app.route('/visualizedata')
+#def visualizedata():
+#    plt.plot()
+#    plt.show()
 
 
 @app.errorhandler(404)

@@ -6,3 +6,6 @@ app = Flask(__name__)
 
 
 class Records(db.Mode):
+
+
+    def

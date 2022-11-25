@@ -9,7 +9,8 @@ This is the ITP Project of Liu Chak Tin (227212713).
 This is Real-Time Monitoring People Flow System.
 
 ### This includes what system?
-
+User can visualize the data and compare the difference.
+They can Upload the data and evaluate the extend of majority.
 ### Who can use this?
 
 ### Tools that I have use:
