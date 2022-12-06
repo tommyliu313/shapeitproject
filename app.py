@@ -3,7 +3,6 @@ import cv2
 #import mediapipe as 
 import matplotlib.pyplot as py
  
-from camera import Camera
 
 #basic setting
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
@@ -27,6 +26,7 @@ def gen_frames():
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
+#use haarcascade face
 #def recognize_face():
 
 def draw_rentangle():
@@ -38,7 +38,7 @@ def draw_rentangle():
 #def ():
 
 
-
+#Basic Routing
 @app.route('/')
 def testing():
     return 'hello world'
@@ -51,11 +51,17 @@ def index():
 def simple():
     return jsonify(message = 'Hello from the Planetary API.')
 
+@app.route('/visualize')
+def visualize():
+    return render_template('page/visualizedata.html')
+
+#Video
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
+#Testing
 @app.route('/parameters')
 def parameters():
     name = request.args.get('name')
@@ -65,12 +71,12 @@ def parameters():
     else:
         return jsonify(message="Welcome "+ name + ", you are old enough!")
 
+# CRUD Operation
+#@app.route('', methods=['GET','POST'])
+#def
 
-#@app.route('/visualizedata')
-#def visualizedata():
-#    plt.plot()
-#    plt.show()
 
+#Error Response
 
 @app.errorhandler(404)
 def page_not_found(e):
