@@ -2,13 +2,13 @@
 {% block content %}
 <div class="mt-4 p-5 bg-warning text-black rounded">
     <h1>Video Cam</h1></div>
-<div class="">
+<center>
 <img src=" {{ url_for('video_feed') }}">
-</div>
-
-<button class="btn btn-success">Start Counting</button>
-<button class="btn btn-danger">Stop Counting</button>
-
+</center>
+<table class="table table-info table-responsive">
+<tr><td><button class="btn btn-success">Start Counting</button></td>
+<td><button class="btn btn-danger">Stop Counting</button></td></tr>
+</table>
 
 {% endblock %}
 

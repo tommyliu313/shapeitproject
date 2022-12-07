@@ -30,7 +30,7 @@ def gen_frames():
 #def recognize_face():
 
 def draw_rentangle():
-    cv2.drawRentangle()
+    cv2.drawRentangle((x,y))
 
 
 #detect multiple faces

@@ -43,7 +43,7 @@ Diagram Can only show in online visual paradigm
 pip freeze > requirements.txt(https://learn.markteaching.com/python-pip/#pip_freeze_%3E_requirementstxt_%3E_%E5%AE%89%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E5%AF%AB%E5%88%B0txt)
 
 
-## How to start up the application?
+## How to start up the application?(Developer Mode)
 1) Please make sure you have installed python.
 
 2) Then please go to the terminal from your favour editor, make sure your path is correct.
