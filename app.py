@@ -24,23 +24,22 @@ def gen_frames():
         if not success:
             break
         else:
-            ret, buffer = cv2.imencode('.jpg', frame)
-            if ret:
-                gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-                faces = facexml.detectMultiScale(gray,1.3,5)
-                eyes = eyexml.detectMultiScale(gray,1.3,5)
-                fontScale = 1
-                fontStyle = cv2.FONT_HERSHEY_COMPLEX_SMALL
-                for (x,y,w,h) in faces:
-                    cv2.rectangle(frame,(x,y),(x + w, y + h),(0,255,0))
-                    cv2.putText(frame,'Person',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
-                    for (ex,ey,ew,eh) in eyes:
-                        cv2.circle(frame,(ex+ew,ey+eh), 35,(255, 0, 0), 5)
-                        cv2.putText(frame,'Eyes',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
+            gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+            faces = facexml.detectMultiScale(gray,1.3,5)
+            eyes = eyexml.detectMultiScale(gray,1.3,5)
+            fontScale = 1
+            fontStyle = cv2.FONT_HERSHEY_COMPLEX_SMALL
+            
+            for (x,y,w,h) in faces:
+                cv2.rectangle(frame,(x,y),(x + w, y + h),(0,255,0),2)
+                cv2.putText(frame,'Person',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
                 
-                frame = buffer.tobytes()
+                for (ex,ey,ew,eh) in eyes:
+                    cv2.circle(frame,(ex+ew,ey+eh), 35,(255, 0, 0), 5)
+                    cv2.putText(frame,'Eyes',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
+                (flag,encodedImage) = cv2.imencode('.jpg', frame)    
                 yield (b'--frame\r\n'
-                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+                       b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encodedImage) + b'\r\n')
             
 
             
