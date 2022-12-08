@@ -3,10 +3,13 @@ import cv2
 #import mediapipe as 
 import matplotlib.pyplot as py
  
+facexml = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
+eyexml = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
+
 
 #basic setting
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
-camera = cv2.VideoCapture(0)
+camera = cv2.VideoCapture(0,cv2.CAP_DSHOW)
 #mp_face_detection = mp.solutions.face_detection
 #mp_drawing = mp.solutions.drawing_utils
 
@@ -22,15 +25,26 @@ def gen_frames():
             break
         else:
             ret, buffer = cv2.imencode('.jpg', frame)
-            frame = buffer.tobytes()
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            if ret:
+                gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+                faces = facexml.detectMultiScale(gray,1.3,5)
+                eyes = eyexml.detectMultiScale(gray,1.3,5)
+                fontScale = 1
+                fontStyle = cv2.FONT_HERSHEY_COMPLEX_SMALL
+                for (x,y,w,h) in faces:
+                    cv2.rectangle(frame,(x,y),(x + w, y + h),(0,255,0))
+                    cv2.putText(frame,'Person',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
+                    for (ex,ey,ew,eh) in eyes:
+                        cv2.circle(frame,(ex+ew,ey+eh), 35,(255, 0, 0), 5)
+                        cv2.putText(frame,'Eyes',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
+                
+                frame = buffer.tobytes()
+                yield (b'--frame\r\n'
+                       b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+            
 
-#use haarcascade face
-#def recognize_face():
-
-def draw_rentangle():
-    cv2.drawRentangle((x,y))
+            
+    
 
 
 #detect multiple faces
@@ -55,6 +69,10 @@ def simple():
 def visualize():
     return render_template('page/visualizedata.html')
 
+@app.route('/setting')
+def setting():
+    return render_template('page/setting.html')
+    
 #Video
 @app.route('/video_feed')
 def video_feed():
