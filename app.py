@@ -2,7 +2,8 @@ from flask import Flask, request, render_template, url_for, jsonify, Response
 import cv2
 #import mediapipe as 
 import matplotlib.pyplot as py
- 
+import time
+
 facexml = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
 eyexml = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
 
@@ -10,6 +11,11 @@ eyexml = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
 #basic setting
 app = Flask(__name__, template_folder='app/templates',static_folder="app/static")
 camera = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+camera.set(3,640)
+camera.set(4,480)
+camera.set(10,100)
+fps = camera.get(cv2.CAP_PROP_FPS)
+
 #mp_face_detection = mp.solutions.face_detection
 #mp_drawing = mp.solutions.drawing_utils
 
@@ -24,20 +30,29 @@ def gen_frames():
         if not success:
             break
         else:
-            gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+            smaller_frame = cv2.resize(frame,(0,0),fx=0.25,fy=0.25)
+            rgb_small_frame = smaller_frame[:,:,::-1]
+            gray = cv2.cvtColor(smaller_frame,cv2.COLOR_BGR2GRAY)
             faces = facexml.detectMultiScale(gray,1.3,5)
             eyes = eyexml.detectMultiScale(gray,1.3,5)
             fontScale = 1
             fontStyle = cv2.FONT_HERSHEY_COMPLEX_SMALL
-            
+            ntime = time.time()
+            ptime = 0
+
+            fps = 1/(ntime-ptime)
+            ptime = ntime
+            fps = int(fps)
+            fps = str(fps)
+            cv2.putText(gray, fps, (7, 70), fontStyle, 3, (100, 255, 0), 3, cv2.LINE_AA)
+
             for (x,y,w,h) in faces:
-                cv2.rectangle(frame,(x,y),(x + w, y + h),(0,255,0),2)
-                cv2.putText(frame,'Person',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
+                cv2.rectangle(smaller_frame,(x,y),(x + w, y + h),(0,255,0),2)
                 
                 for (ex,ey,ew,eh) in eyes:
-                    cv2.circle(frame,(ex+ew,ey+eh), 35,(255, 0, 0), 5)
-                    cv2.putText(frame,'Eyes',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
-                (flag,encodedImage) = cv2.imencode('.jpg', frame)    
+                    cv2.circle(smaller_frame,(ex+ew,ey+eh), 35,(255, 0, 0), 5)
+                    cv2.putText(smaller_frame,'Eyes',(x + w, y + h),fontStyle,fontScale,(0,0,0),3,cv2.LINE_8)
+                (flag,encodedImage) = cv2.imencode('.jpg', smaller_frame)    
                 yield (b'--frame\r\n'
                        b'Content-Type: image/jpeg\r\n\r\n' + bytearray(encodedImage) + b'\r\n')
             

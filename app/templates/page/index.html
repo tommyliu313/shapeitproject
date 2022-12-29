@@ -9,8 +9,36 @@
 <tr><td><button class="btn btn-success">Start Counting</button></td>
 <td><button class="btn btn-danger">Stop Counting</button></td></tr>
 <tr><td><button class="btn btn-success">Save Record</button></td>
-    <td><button class="btn btn-danger">Discard Record</button></td></tr>
+    <td><button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DiscardModal">Discard Record</button></td></tr>
+<tr><td>Number of People Wearing mask</button></td>
+        <td>Discard Record</td></tr>
+        <tr><td>Number of People <span style="color:red"> Not wearing mask</span></td>
+            <td>Discard Record</td>
+        </tr>        
 </table>
+
+<!--Discard Record Start-->
+<div class="modal fade" id="DiscardModal" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="restfulapi/index.php/market/deleterecord" method="DELETE">
+        <div class="modal-header">
+          <h5 class="modal-title" >Delete this record</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <div class="form-group mb-3">
+                  
+        You are going to delete this record.<br>
+        Are you sure to delete this record? The action is irreversible.
+        </div>
+     
+        </div>
+            <div class="modal-footer">
+                <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+                <button type="submit" class="btn btn-success" id="editbuttonsubmit">Submit</button>
+            </div></div></div></div>
+<!--Discard Record End-->
 
 {% endblock %}
 
