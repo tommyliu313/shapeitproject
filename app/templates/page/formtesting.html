@@ -1,0 +1,15 @@
+{% include 'necessaries/navbar.html' %}
+{% block body %}
+<form action="formprocess" method="post">
+    <label for="url">Website URL</label>
+        <input type="url" name="url" value="" required>
+        <br>
+        <label for="code">Short Name</label>
+        <input type="text" name="code" value="" required>
+        <input type="submit" value="Shorten">
+    </form>
+{% endblock %}
+
+{% block content %}
+{% include 'necessaries/footer.html' %}
+{% endblock %}

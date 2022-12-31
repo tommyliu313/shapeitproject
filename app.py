@@ -1,8 +1,9 @@
-from flask import Flask, request, render_template, url_for, jsonify, Response
+from flask import Flask, request, render_template, url_for, jsonify, Response, redirect
 import cv2
 #import mediapipe as 
 import matplotlib.pyplot as py
 import time
+import json
 
 facexml = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml')
 eyexml = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_eye.xml")
@@ -67,10 +68,6 @@ def gen_frames():
 
 
 #Basic Routing
-@app.route('/')
-def testing():
-    return 'hello world'
-
 @app.route('/index')
 def index():
     return render_template('page/index.html')
@@ -86,12 +83,21 @@ def visualize():
 @app.route('/setting')
 def setting():
     return render_template('page/setting.html')
-    
+
+@app.route('/formtesting')
+def formsetting():
+    return render_template('page/formtesting.html')
+
+@app.route('/success')
+def success():
+    return render_template('page/success.html')
 #Video
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
+
+
 
 #Testing
 @app.route('/parameters')
@@ -104,8 +110,20 @@ def parameters():
         return jsonify(message="Welcome "+ name + ", you are old enough!")
 
 # CRUD Operation
-#@app.route('', methods=['GET','POST'])
-#def
+# GET
+# POST
+@app.route('/formprocess', methods=['GET','POST'])
+def formprocess():
+    if request.method == 'POST':
+        urls = {}
+        urls[request.form['code']] = {'url': request.form['url']}
+        with open('urls.json','w') as url_file:
+             json.dump(urls, url_file)
+        return render_template('page/success.html', code=request.form['code'])
+    else:
+        return redirect(url_for('index'))    
+# PUT
+# DELETE
 
 
 #Error Response
